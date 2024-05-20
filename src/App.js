@@ -1,10 +1,10 @@
-import Cart from './components/Cart'
-
+import Main from './components/Cart'
+import Homepage from './components/Homepage'
 import './App.css'
 
 const App = () => (
   <div>
-    <Cart />
+    <Homepage />
   </div>
 )
 

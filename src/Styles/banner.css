@@ -1,0 +1,7 @@
+.bannerContainer {
+  background-image: url('https://cdn.furrl.in/vibes/VibeCard_HomeHunts.jpg');
+  background-size: cover;
+  height: 40vh;
+  width: 100vw;
+  margin-bottom: 10px;
+}

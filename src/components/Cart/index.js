@@ -6,19 +6,29 @@ class Main extends Component {
   }
 
   getapi = async () => {
+    const payload = {
+      input: {
+        page: 2,
+        pageSize: 10,
+        filters: [],
+        id: '#HomeHunts',
+        entity: 'vibe',
+      },
+    }
     const options = {
-      mode: 'cors',
       method: 'POST',
+      mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
       },
+      body: JSON.stringify(payload),
     }
     const response = await fetch(
       'https://api.furrl.in/api/v2/listing/getListingProducts',
       options,
     )
     console.log(response)
-    const responseData = await responseData.json()
+    const responseData = await response.json()
     console.log(responseData)
   }
 
