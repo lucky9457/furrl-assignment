@@ -23,6 +23,13 @@
   width: 100vw;
   margin-top: 10px;
 }
+.loadercontainer {
+  height: 10vh;
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+}
 
 @media (min-width: 996px) {
   .productlistContainer {

@@ -1,5 +1,8 @@
 import {useState, useEffect} from 'react'
+import Loader from 'react-loader-spinner'
+
 import ProductItem from '../ProductItem'
+
 import '../../Styles/productlist.css'
 
 const ProductList = () => {
@@ -12,7 +15,7 @@ const ProductList = () => {
     setIsloading(true)
     const payload = {
       input: {
-        page: 1,
+        page: pageNumber,
         pageSize: 10,
         filters: [],
         id: '#HomeHunts',
@@ -42,14 +45,28 @@ const ProductList = () => {
       console.log(getListingProducts)
       setResobj(getListingProducts)
       const {products} = getListingProducts
+      setIsloading(false)
       setProductdata(prev => [...prev, ...products])
     }
 
     fetchdata()
   }, [pageNumber])
   console.log(resobj)
-  const {totalProducts} = resobj
-  console.log(productdata)
+  const {totalProducts, totalPages} = resobj
+  console.log(totalPages)
+
+  const handlescroll = () => {
+    const {scrollTop, scrollHeight, clientHeight} = document.documentElement
+    console.log(scrollHeight)
+    if (scrollTop + 2 + clientHeight >= scrollHeight) {
+      setPagenumber(pageNumber + 1)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handlescroll)
+    return () => window.removeEventListener('scroll', handlescroll)
+  }, [pageNumber])
 
   return (
     <div className="productlistContainer">
@@ -62,6 +79,11 @@ const ProductList = () => {
           <ProductItem item={each} key={each.id} />
         ))}
       </ul>
+      {isloading && (
+        <div className="loadercontainer">
+          <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
+        </div>
+      )}
     </div>
   )
 }

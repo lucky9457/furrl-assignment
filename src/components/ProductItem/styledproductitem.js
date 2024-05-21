@@ -12,4 +12,5 @@ export const BanneritemContainer = styled.h1`
   flex-direction: column;
   justify-content: end;
   align-items: flex-end;
+  transition: 2s ease-in;
 `
