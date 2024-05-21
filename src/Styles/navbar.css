@@ -9,6 +9,7 @@
   justify-content: space-between;
   display: flex;
   align-items: center;
+  width: 100vw;
 }
 
 .innernavContainer {
@@ -36,4 +37,9 @@
   height: 30px;
   width: 50px;
   margin-left: 10px;
+}
+@media (min-width: 996px) {
+  .navbarContainer {
+    width: 99vw;
+  }
 }

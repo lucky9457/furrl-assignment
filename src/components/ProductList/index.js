@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-
+import ProductItem from '../ProductItem'
 import '../../Styles/productlist.css'
 
 const ProductList = () => {
@@ -41,14 +41,15 @@ const ProductList = () => {
       const {getListingProducts} = data
       console.log(getListingProducts)
       setResobj(getListingProducts)
+      const {products} = getListingProducts
+      setProductdata(prev => [...prev, ...products])
     }
 
     fetchdata()
   }, [pageNumber])
-
   console.log(resobj)
-  const {products, totalProducts} = resobj
-  console.log(products)
+  const {totalProducts} = resobj
+  console.log(productdata)
 
   return (
     <div className="productlistContainer">
@@ -56,6 +57,11 @@ const ProductList = () => {
         <h1 className="productsheading">Shop Products</h1>
         <p className="productsCount">•{totalProducts} products</p>
       </div>
+      <ul className="productlistContainer">
+        {productdata.map(each => (
+          <ProductItem item={each} key={each.id} />
+        ))}
+      </ul>
     </div>
   )
 }

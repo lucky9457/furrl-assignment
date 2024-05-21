@@ -15,3 +15,17 @@
   margin-left: 10px;
   margin-right: 10px;
 }
+.productlistContainer {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  overflow: auto;
+  width: 100vw;
+  margin-top: 10px;
+}
+
+@media (min-width: 996px) {
+  .productlistContainer {
+    width: 99vw;
+  }
+}
