@@ -8,7 +8,7 @@ class Main extends Component {
   getapi = async () => {
     const payload = {
       input: {
-        page: 2,
+        page: 1,
         pageSize: 10,
         filters: [],
         id: '#HomeHunts',
