@@ -6,10 +6,7 @@
     "npm": ">=6"
   },
   "dependencies": {
-    "@testing-library/jest-dom": "5.11.9",
-    "@testing-library/react": "11.2.5",
-    "@testing-library/user-event": "12.6.2",
-    "chalk": "4.1.0",
+    
     "cors": "2.8.5",
     "js-cookie": "2.2.1",
     "react": "17.0.1",
